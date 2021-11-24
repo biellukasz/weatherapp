@@ -11,11 +11,11 @@ export class CurrentWeatherComponent implements OnInit {
 
   constructor() {
     this.current = {
-      city: 'Bethesda',
-      country: 'US',
+      city: 'Bochnia',
+      country: 'PL',
       date: new Date(),
-      image: 'assets/img/sunny.svg',
-      temperature: 72,
+      image: 'assets/img/sunny.png',
+      temperature: 11,
       description: 'sunny',
     } as ICurrentWeather
   }
