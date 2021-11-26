@@ -20,5 +20,5 @@ COPY --from=builder /app/dist/weatherapp /usr/share/nginx/html
 
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
