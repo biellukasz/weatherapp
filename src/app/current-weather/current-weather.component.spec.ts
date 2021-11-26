@@ -4,6 +4,7 @@ import { CurrentWeatherComponent } from './current-weather.component';
 import {WeatherService} from "../service/weather/weather.service";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {WeatherServiceFake} from "../service/weather/weather.service.fake";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent;
@@ -11,7 +12,7 @@ describe('CurrentWeatherComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, NoopAnimationsModule],
       declarations: [ CurrentWeatherComponent ],
       providers: [ { provide: WeatherService, useClass: WeatherServiceFake} ]
     })
