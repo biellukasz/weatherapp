@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ICurrentWeather} from "../model/icurrent-weather";
 import {WeatherService} from "../service/weather/weather.service";
+import {ICurrentWeather} from "../model/icurrent-weather";
 
 @Component({
   selector: 'app-current-weather',
@@ -22,9 +22,27 @@ export class CurrentWeatherComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getWeatherBasedOnLocation();
     this.weatherService
-      .currentWeather
+      .$currentWeather
       .subscribe(data => (this.current = data))
+  }
+
+  getWeatherBasedOnLocation() {
+    if (navigator.geolocation) {
+      // @ts-ignore
+      navigator.geolocation.getCurrentPosition((position: Position) => {
+          if (position) {
+            this.weatherService
+              .getCurrentWeatherByCoords(position.coords.latitude, position.coords.longitude)
+              .subscribe(data => this.weatherService.$currentWeather.next(data))
+          }
+        },
+        // @ts-ignore
+        (error: PositionError) => console.log(error));
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
   }
 
   getOrdinal(date: number) {

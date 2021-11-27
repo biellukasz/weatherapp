@@ -23,13 +23,12 @@ interface ICurrentWeatherData {
   dt: number,
   name: string
 }
-
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService implements IWeatherService{
 
-  currentWeather = new BehaviorSubject<ICurrentWeather>({
+  $currentWeather = new BehaviorSubject<ICurrentWeather>({
     city: '--',
     country: '--',
     date: Date.now(),
@@ -57,7 +56,12 @@ export class WeatherService implements IWeatherService{
 
     return this.getCurrentWeatherHelper(uriParams)
   }
-  
+
+  getCurrentWeatherByCoords(latitude: number, longitude: number): Observable<ICurrentWeather> {
+    const uriParams = `lat=${latitude}&lon=${longitude}`
+    return this.getCurrentWeatherHelper(uriParams)
+  }
+
   private getCurrentWeatherHelper(uriParams: string): Observable<ICurrentWeather> {
     return this.httpClient
       .get<ICurrentWeatherData>(
