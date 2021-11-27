@@ -7,6 +7,9 @@ import {Component} from '@angular/core';
       <mat-card-title><div class="mat-headline">Current Weather</div></mat-card-title>
     </mat-toolbar>
     <div fxLayoutAlign="center">
+      <app-city-search></app-city-search>
+    </div>
+    <div fxLayoutAlign="center">
       <div class="mat-caption vertical-margin">Your city, your forecast, right now!</div>
     </div>
     <div fxLayout="row">
