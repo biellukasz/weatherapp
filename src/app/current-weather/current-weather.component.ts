@@ -25,10 +25,10 @@ export class CurrentWeatherComponent implements OnInit {
     this.getWeatherBasedOnLocation();
     this.weatherService
       .$currentWeather
-      .subscribe(data => (this.current = data))
+      .subscribe(data => (this.current = data));
   }
 
-  getWeatherBasedOnLocation() {
+  private getWeatherBasedOnLocation() {
     if (navigator.geolocation) {
       // @ts-ignore
       navigator.geolocation.getCurrentPosition((position: Position) => {

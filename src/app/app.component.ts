@@ -16,7 +16,7 @@ import {Component} from '@angular/core';
       <div fxFlex></div>
       <mat-card fxFlex="300px">
         <mat-card-header class="mat-typography">
-          <mat-card-title>Current Weather</mat-card-title>
+          <mat-card-title>Weather App</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <app-current-weather></app-current-weather>
@@ -27,5 +27,5 @@ import {Component} from '@angular/core';
   `
 })
 export class AppComponent {
-  title = 'weatherapp';
+  title = 'Weather App';
 }
