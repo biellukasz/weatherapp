@@ -10,7 +10,7 @@ import {Component} from '@angular/core';
       <app-city-search></app-city-search>
     </div>
     <div fxLayoutAlign="center">
-      <div class="mat-caption vertical-margin">Your city, your forecast, right now!</div>
+      <div class="mat-caption vertical-margin">Your city, your forecast, right now! Cloud People</div>
     </div>
     <div fxLayout="row">
       <div fxFlex></div>
